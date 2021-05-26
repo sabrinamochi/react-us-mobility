@@ -1,5 +1,5 @@
 import "../styles.css";
-import { selectAll } from "d3";
+import { select, selectAll } from "d3";
 
 const ScrollingSteps = {
     "park": (direction) => {
@@ -34,8 +34,10 @@ const ScrollingSteps = {
     "telework": (direction) => {
       if (direction == "down") {
         selectAll(".radar").style("opacity", 1)
+        select(".telework-legend").style("opacity", 1)
         selectAll(".telework").classed("selected-grid", true)
       } else {
+        select(".telework-legend").style("opacity", 0)
         selectAll(".telework").classed("selected-grid", false)
         selectAll(".radar").style("opacity", 0.45)
         selectAll(".mw-s").style("opacity", 1)

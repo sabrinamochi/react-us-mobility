@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/react-us-mobility/static/css/main.2186e879.chunk.css",
+    "main.js": "/react-us-mobility/static/js/main.6f3202a7.chunk.js",
+    "main.js.map": "/react-us-mobility/static/js/main.6f3202a7.chunk.js.map",
+    "runtime-main.js": "/react-us-mobility/static/js/runtime-main.ce324fbe.js",
+    "runtime-main.js.map": "/react-us-mobility/static/js/runtime-main.ce324fbe.js.map",
+    "static/js/2.f310312d.chunk.js": "/react-us-mobility/static/js/2.f310312d.chunk.js",
+    "static/js/2.f310312d.chunk.js.map": "/react-us-mobility/static/js/2.f310312d.chunk.js.map",
+    "index.html": "react-us-mobility/index.html",
+    "static/css/main.2186e879.chunk.css.map": "/react-us-mobility/static/css/main.2186e879.chunk.css.map",
+    "static/js/2.f310312d.chunk.js.LICENSE.txt": "/react-us-mobility/static/js/2.f310312d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "react-us-mobility/static/js/runtime-main.ce324fbe.js",
+    "react-us-mobility/static/js/2.f310312d.chunk.js",
+    "react-us-mobility/static/css/main.2186e879.chunk.css",
+    "react-us-mobility/static/js/main.6f3202a7.chunk.js"
+  ]
+}

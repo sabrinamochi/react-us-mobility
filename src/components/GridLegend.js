@@ -7,7 +7,7 @@ const GridLegend = ({stateAbbr, gridCircleData, radius}) => {
         ? <text
             className="legend"
             y={-(radius / (gridCircleData.length-1)) * n}
-            dy="0.6em">
+            dy="0.8em">
               {`${100*(n-1)/2}%`}
           </text>
         : null 

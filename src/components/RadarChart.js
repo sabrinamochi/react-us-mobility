@@ -10,11 +10,12 @@ const RadarChart = ({
   radius,
   rScale,
   angleSlice,
-  colorScale
+  colorScale,
+  mobile
 }) => {
 
   return (
-    <g>
+    <g transform={stateAbbr==="us" ? `translate(0, ${25})` : `translate(0)`}>
       <Grid
         stateAbbr={stateAbbr}
         region={region}
@@ -30,6 +31,7 @@ const RadarChart = ({
         rScale={rScale}
         angleSlice={angleSlice}
         colorScale={colorScale}
+        mobile={mobile}
         />
     </g>
   )

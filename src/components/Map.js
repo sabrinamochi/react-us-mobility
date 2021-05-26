@@ -25,7 +25,7 @@ const Map = ({ onChangeTooltipValue, stateSize, colorScale, mobile}) => {
 
   // define padding
   const statePaddingX = mobile ? 3 : 5;
-  const statePaddingY = mobile ? 15 : 5;
+  const statePaddingY = mobile ? 12 : 5;
 
   // function to calculate state location
   const y_row = ({row}) => row * (stateSize + statePaddingY);
@@ -87,7 +87,8 @@ const Map = ({ onChangeTooltipValue, stateSize, colorScale, mobile}) => {
           radius={radius}
           rScale={rScale}
           angleSlice={angleSlice}
-          colorScale={colorScale}/>
+          colorScale={colorScale}
+          mobile={mobile}/>
       </g>
     )
   });

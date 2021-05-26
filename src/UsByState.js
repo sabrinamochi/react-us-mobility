@@ -5,10 +5,11 @@ import Stickyfill from 'stickyfilljs';
 import {selectAll, select} from "d3";
 import Map from "./components/Map";
 import GradientLegend from "./components/GradientLegend";
+import TeleworkLegend from "./components/TeleworkLegend";
 import ScrollingSteps from "./components/ScrollingSteps";
 
 // define chart dimensions
-const initialMobile = window.innerWidth <= 600
+const initialMobile = window.innerWidth <= 768
   ? true
   : false;
 
@@ -56,7 +57,7 @@ const UsByState = ({colorScale}) => {
   const textsContainerRef = useRef(null);
   function updateDimensions() {
     if (chartContainerRef.current) {
-      setMobile(window.innerWidth <= 600
+      setMobile(window.innerWidth <= 768
         ? true
         : false)
       const width = chartContainerRef.current.clientWidth,
@@ -74,8 +75,10 @@ const UsByState = ({colorScale}) => {
             ? 20
             : 60
         },
-      stateSize = (width - MARGIN.left - MARGIN.right) / 12,
-      height = mobile ? stateSize * 12 + MARGIN.top + MARGIN.bottom : stateSize * 9 + MARGIN.top + MARGIN.bottom;
+        stateSize = (width - MARGIN.left - MARGIN.right) / 12,
+        height = mobile
+          ? stateSize * 11 + MARGIN.top + MARGIN.bottom
+          : stateSize * 9 + MARGIN.top + MARGIN.bottom;
       setDimensions({height, width, stateSize, MARGIN});
 
     }
@@ -85,9 +88,7 @@ const UsByState = ({colorScale}) => {
     window.addEventListener("resize", updateDimensions)
   }, [chartContainerRef, textsContainerRef]);
 
-  // console.log(mobile) 
-
-  // Scrollytelling
+  // console.log(mobile) Scrollytelling
   function handleStepEnter({index, element, direction}) {
     currentStep = select(element).attr('data-step')
     ScrollingSteps[currentStep](direction);
@@ -124,13 +125,19 @@ const UsByState = ({colorScale}) => {
           position: "relative"
         }}>
           <svg width={dimensions.width} height={dimensions.height}>
-            <g className="chart" transform={`translate(${dimensions.MARGIN.left}, ${dimensions.MARGIN.top})`}>
-              <GradientLegend
+            <g
+              className="chart"
+              transform={`translate(${dimensions.MARGIN.left}, ${dimensions.MARGIN.top})`}>
+              <GradientLegend 
                 colorScale={colorScale}
                 x={dimensions.width / 2 - dimensions.MARGIN.left - dimensions.width / 8}
                 y={- dimensions.MARGIN.top / 2}
                 width={dimensions.width / 4}
                 height={20}/>
+              <TeleworkLegend 
+                transform={`translate(${30 + dimensions.width / 2 - dimensions.MARGIN.left + dimensions.width / 8 }, ${10 - dimensions.MARGIN.top / 2})`}
+                width={mobile ? 30 : 60}
+                mobile={mobile}/>
               <Map
                 onChangeTooltipValue={onChangeTooltipHandler}
                 stateSize={dimensions.stateSize}

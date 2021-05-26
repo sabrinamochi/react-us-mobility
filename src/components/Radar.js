@@ -9,6 +9,7 @@ const Radar = ({
   rScale,
   angleSlice,
   colorScale,
+  mobile
 }) => {
   // prepare data for radar chart
   const radarData = {
@@ -42,7 +43,11 @@ const Radar = ({
         colorScale={colorScale}
       />
       { stateAbbr !== "us" // if its us radar chart, don't put state label in the middle 
-        ? <text className="state-abbr">{stateAbbr}</text>
+        ? <text 
+            dy={mobile && stateAbbr !== "AK" ? -rScale.range()[1] : 0}
+            className="state-abbr">
+            {stateAbbr}
+          </text>
         : null
       }
     </g>

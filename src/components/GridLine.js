@@ -21,11 +21,11 @@ const GridLine = ({ stateAbbr, mobility, rScale, angleSlice  }) => {
           strokeWidth={stateAbbr === "us" ? 2.5 : 1} // give overall us radar thicker stroke
         />
         {stateAbbr === "AK"  // if its alaska, give mobility labels
-          ? <text className="legend" textAnchor={textAnchorOptions[i]} y={rScale.range()[1] * 1.8 * Math.sin(angleSlice * i - Math.PI / 2)}>{labelTexts[i].map((t,idx) => <tspan x={rScale.range()[1] * 1.3 * Math.cos(angleSlice * i - Math.PI / 2)} dy={idx*10}>{t}</tspan>)}</text>
+          ? <text className="legend" textAnchor={textAnchorOptions[i]} y={rScale.range()[1] * 1.5 * Math.sin(angleSlice * i - Math.PI / 2)}>{labelTexts[i].map((t,idx) => <tspan x={rScale.range()[1] * 1.2 * Math.cos(angleSlice * i - Math.PI / 2)} dy={idx*10}>{t}</tspan>)}</text>
           : null
         }
         {stateAbbr === "us" // if its overall us, give mobility labels
-          ? <text className="legend" textAnchor={textAnchorOptions[i]} y={rScale.range()[1] * 1.2 * Math.sin(angleSlice * i - Math.PI / 2)}>{labelTexts[i].map((t,idx) => <tspan x={rScale.range()[1] * 1.3 * Math.cos(angleSlice * i - Math.PI / 2)} dy={idx*10}>{t}</tspan>)}</text>
+          ? <text className="legend" textAnchor={textAnchorOptions[i]} y={rScale.range()[1] * 1.1 * Math.sin(angleSlice * i - Math.PI / 2)}>{labelTexts[i].map((t,idx) => <tspan x={rScale.range()[1] * 1.1 * Math.cos(angleSlice * i - Math.PI / 2)} dy={idx*10}>{t}</tspan>)}</text>
           : null
         }
  
