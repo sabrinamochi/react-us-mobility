@@ -8,10 +8,10 @@ const TeleworkLegend = ({ width, transform, mobile }) => {
         transform={transform}>
         <text 
           className="legend-title"
-          transform={`translate(${width/2}, ${-15})`}
+          transform={`translate(${width/2}, ${-20})`}
         >
-            <tspan>more ppl.</tspan>
-            <tspan y={10} x={0}>teleworking</tspan>
+            <tspan>More ppl.</tspan>
+            <tspan y={12} x={0}>Teleworking</tspan>
         </text>
         <line 
           x1={0}

@@ -1,8 +1,28 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
+import {select} from "d3";
 
 
 const RadarCircle = ({ data, stateAbbr, rScale, angleSlice, colorScale }) => {
-  const dotRadius = stateAbbr === "us" ? 4 : 2.5;
+  const dotRadius = stateAbbr === "us" ? 5 : 2.5;
+  const circleTooltipRef = useRef(null);
+
+  const handleMouseOver = (d, cx, cy) => {
+    if(circleTooltipRef.current){
+      const leftCircle = (d.type.includes("transit")|d.type.includes("work")) ? true : false;
+        select(circleTooltipRef.current)
+        .attr("opacity", 1)
+        .attr("text-anchor", leftCircle ? "end" : "start")
+        .attr("x", leftCircle ? cx-10 : cx+10)
+        .attr("y", cy)
+        .text(d.value > 0 ? `+${Math.round(100*d.value)/100}%` : `${Math.round(100*d.value)/100}%`)
+    }
+  }
+  const handleMouseOut = () => {
+    if(circleTooltipRef.current){
+        select(circleTooltipRef.current)
+        .attr("opacity", 0)
+    }
+  }
 
   return data.values.map((d, i) => {
     const posXCal = Math.cos(angleSlice * i - Math.PI / 2);
@@ -19,13 +39,21 @@ const RadarCircle = ({ data, stateAbbr, rScale, angleSlice, colorScale }) => {
     }
 
     return (
-      <circle
-        key={`${d}+${i}`}
-        cx={modifiedRScale * posXCal}
-        cy={modifiedRScale * posYCal}
-        r={dotRadius}
-        fill={colorScale(data.residential)}
-      />
+      <g key={`${d}+${i}`}>
+        <circle
+          onMouseOver={stateAbbr === "us" ? () => handleMouseOver(d, modifiedRScale * posXCal, modifiedRScale * posYCal) : null}
+          onMouseOut={handleMouseOut}
+          className={`radar-circle radar-circle-${d.type}`}
+          cx={modifiedRScale * posXCal}
+          cy={modifiedRScale * posYCal}
+          r={dotRadius}
+          fill={colorScale(data.residential)}
+        />
+        {stateAbbr === "us" && 
+            <text ref={circleTooltipRef} className="radar-circle-legend"></text>
+        }
+      </g>
+
     );
   });
 };

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@100;400&display=swap');
+
 * {
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -11,37 +13,70 @@ body {
 }
 
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Roboto', sans-serif;
   position: relative;
 }
 
 p{
   line-height: 150%;
+  margin:0;
 }
 
 .content{
-  max-width: 60%;
+  max-width: 50%;
   margin: auto;
 }
 
 section{
-  margin-top: 5em;
+  margin-top: 5em !important;
 }
 
-h1  {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+h1, h3, h5  {
+  font-family: 'Merriweather', serif;
 }
 
-h3, h5 {
-  font-family: Arial, Helvetica, sans-serif;
-}
 
-h1, h3 {
+h1, h3, .byline {
   text-align: center;
 }
 
 h3{
   margin-bottom: 0;
+}
+
+.byline {
+  font-style: italic;
+  margin-bottom: 1em;
+}
+
+.chart-notes, .chart-subtitle{
+  font-family: 'Roboto', sans-serif;
+}
+
+.chart-subtitle{
+  margin-top: .2em;
+  text-align: center;
+  color:#707070;
+  font-size: 14px;
+}
+
+.chart-notes{
+  display:grid;
+  margin:0 auto 0.3em;
+  justify-content: center;
+  text-align: left;
+  width: 50%;
+  color: #b4b4b4;
+}
+
+.chart-notes p {
+  font-size: 12px;
+  line-height: 120%;
+}
+
+.tutorial {
+  background-color: #ee694b;
+  color: #fff;
 }
 
 /* Chart */
@@ -55,7 +90,7 @@ h3{
 }
 
 text {
-  font-family: system-ui;
+  font-family: 'Roboto', sans-serif;
   font-weight:100;
 }
 
@@ -64,19 +99,24 @@ text.state-abbr {
   font-size: 10px;
 }
 
-text.legend {
-  font-size: 10px;
-  fill: #707070;
+.legend, .gradient-legend, .legend-title{
+  fill: #000;
+  font-size: 14px;
 }
 
-#us-overall text.legend{
+.ak-legend {
   font-size: 12px;
-  fill: #515151;
+  opacity:0;
 }
 
-.gradient-legend, .telework-legend text {
-  font-size: 12px;
+#us-overall .radar-circle{
+  cursor:pointer;
 }
+
+.radar-circle-legend{
+  pointer-events: none;
+}
+
 
 .legend-title{
   text-anchor: middle;
@@ -100,6 +140,7 @@ text.legend {
   left:0;
   padding: .6rem;
   max-width: 50%;
+  pointer-events: none;
   display: grid;
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: 10% repeat(3, 28%);
@@ -120,6 +161,7 @@ text.legend {
 
 .tooltip div p{
   margin:0;
+  line-height: 115%;
 }
 
 .tooltip div p:first-of-type{
@@ -137,7 +179,7 @@ text.legend {
 #scrolling-map .mobility-chart {
   position: sticky;
   position: -webkit-sticky;
-  top: 5em;
+  top: 1em;
   z-index:-1;
 }
 
@@ -146,7 +188,7 @@ text.legend {
 }
 
 .scrolling-text {
-  width: 50%;
+  width: 40%;
   padding:1rem 2rem;
   margin: 40rem auto;
   box-shadow: 1px 1px 3px #b4b4b4;
@@ -160,13 +202,36 @@ text.legend {
  margin-bottom: 80rem;
 }
 
+.scrolling-text:nth-last-child(2){
+  margin-bottom:0;
+}
+
 .scrolling-text:first-of-type{
   margin-top: 0;
  }
 
+.radar-path, .radar-circle {
+  opacity: 0.15;
+}
+
+#us-overall .radar-path, #us-overall .radar-circle {
+  opacity: 1;
+}
+
+.show{
+  opacity: 1;
+}
+
 .selected-grid{
   stroke: #b4b4b4;
   stroke-width: 1.5px;
+}
+
+
+/*mobile*/
+
+#mobile-radar-legend{
+  display: none;
 }
 
 @media only screen and (max-width: 768px) {
@@ -184,8 +249,24 @@ text.legend {
 
 
   #scrolling-map .mobility-chart {
-    top: 2em;
+    top: 0em;
   }
+
+  #mobile-radar-legend{
+    display: block;
+  }
+
+  #scrolling-map .legend,  #scrolling-map .gradient-legend,   #scrolling-map .legend-title{
+    font-size: 12px;
+  }
+
+  .ak-legend {
+    opacity: 0;
+  }
+
+  .scrolling-text:last-of-type{
+    margin-bottom: 40rem;
+   }
 
   .tooltip {
     position: relative;
@@ -202,5 +283,9 @@ text.legend {
     grid-row-end: 1;
     grid-column-start: 1;
     grid-column-end: 4;
+  }
+
+  .chart-notes{
+    width: 90%;
   }
 }

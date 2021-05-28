@@ -31,6 +31,7 @@ const Radar = ({
     <g>
       <RadarPath
         data={radarData}
+        stateAbbr={stateAbbr}
         rScale={rScale}
         angleSlice={angleSlice}
         colorScale={colorScale}

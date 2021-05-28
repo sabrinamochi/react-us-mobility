@@ -5,6 +5,8 @@ const GridCircle = ({gridCircleData, stateAbbr, radius, telework}) => {
     let assignedClassName;
     if ((n === 2) && (telework >= 30)){
       assignedClassName = "telework"
+    } else if (n === 1) {
+      assignedClassName = "grid-baseline"
     } 
     return (
       <g key={`${stateAbbr}-${n}`}>
@@ -20,8 +22,8 @@ const GridCircle = ({gridCircleData, stateAbbr, radius, telework}) => {
           stroke="#fff"
           fillOpacity={0.2}
           strokeWidth={stateAbbr === "us" // if its overall us radar chart, give thicker stroke
-          ? 2.5
-          : 1}/>
+          ? 4
+          : 2}/>
       </g>
     )
   });
