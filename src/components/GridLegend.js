@@ -9,13 +9,13 @@ const GridLegend = ({stateAbbr, gridCircleData, radius}) => {
             y={-(radius / (gridCircleData.length-1)) * n}
             dy= {n === 2 ? "1em" : "0.8em"}>
               {n === 2 && 
-                `+${100*(n-1)/2}%`
+                `≥+${100*(n-1)/2}%`
               }
               {n === 1 &&
                `No Change`
               }
               {n === 0 && 
-                `${100*(n-1)/2}%`
+                `≤${100*(n-1)/2}%`
               }
           </text>
         : null 

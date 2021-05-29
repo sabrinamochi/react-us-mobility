@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { csv } from "d3";
+import { csv, extent } from "d3";
 import stateData from "./stateData.js";
 
 const readData = (url) => {

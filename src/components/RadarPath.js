@@ -1,7 +1,7 @@
 import React from "react";
 import { lineRadial, curveCardinalClosed } from "d3-shape";
 
-const RadarPath = ({ data, stateAbbr, rScale, angleSlice, colorScale }) => {
+const RadarPath = ({ data, stateAbbr, rScale, angleSlice, colorScale, colorColumn }) => {
   // radial line generator, thanks to d3 woo hoo! 
   const radarLine = lineRadial()
     .curve(curveCardinalClosed)
@@ -20,8 +20,8 @@ const RadarPath = ({ data, stateAbbr, rScale, angleSlice, colorScale }) => {
       <path
         className="radar-path"
         d={radarLine(data.values)}
-        fill={colorScale(data.residential)}
-        stroke={colorScale(data.residential)}
+        fill={colorScale(data[colorColumn])}
+        stroke={colorScale(data[colorColumn])}
         fillOpacity={.3}
         strokeWidth={stateAbbr === "us" ? 3 : 1.5}
       />

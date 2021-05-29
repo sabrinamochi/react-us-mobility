@@ -17,10 +17,10 @@ const GridCircle = ({gridCircleData, stateAbbr, radius, telework}) => {
           className={assignedClassName}
           r={(radius / (gridCircleData.length - 1)) * n}
           fill={n === 2 // only give fill color to the biggest circle grid
-          ? "#CDCDCD"
+          ? "#e8e8e8"
           : "none"}
           stroke="#fff"
-          fillOpacity={0.2}
+          fillOpacity={0.5}
           strokeWidth={stateAbbr === "us" // if its overall us radar chart, give thicker stroke
           ? 4
           : 2}/>

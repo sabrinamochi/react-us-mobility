@@ -21,22 +21,22 @@ const GridLine = ({ stateAbbr, mobility, rScale, angleSlice  }) => {
           strokeWidth={stateAbbr === "us" ? 4 : 2} // give overall us radar thicker stroke
         />
         {stateAbbr === "AK"  // if its alaska, give mobility labels
-          ? <text className="legend ak-legend" textAnchor={textAnchorOptions[i]} y={rScale.range()[1] * 1.5 * Math.sin(angleSlice * i - Math.PI / 2)}>{labelTexts[i].map((t,idx) => <tspan x={rScale.range()[1] * 1.2 * Math.cos(angleSlice * i - Math.PI / 2)} dy={idx*11}>{t}</tspan>)}</text>
+          ? <text className="legend ak-legend" textAnchor={textAnchorOptions[i]} y={rScale.range()[1] * 1.5 * Math.sin(angleSlice * i - Math.PI / 2)}>{labelTexts[i].map((t,idx) => <tspan key={idx} x={rScale.range()[1] * 1.2 * Math.cos(angleSlice * i - Math.PI / 2)} dy={idx*11}>{t}</tspan>)}</text>
           : null
         }
         {stateAbbr === "us" // if its overall us, give mobility labels
           ? <text 
             className="legend" 
             textAnchor={textAnchorOptions[i]} 
-            y={rScale.range()[1] * 1.1 * Math.sin(angleSlice * i - Math.PI / 2)}>
+            y={rScale.range()[1] * 1.13 * Math.sin(angleSlice * i - Math.PI / 2)}>
               {
-              labelTexts[i].map((t,idx) => <tspan x={rScale.range()[1] * 1.1 * Math.cos(angleSlice * i - Math.PI / 2)} dy={idx*13}>{t}</tspan>)
+              labelTexts[i].map((t,idx) => <tspan key={idx} x={rScale.range()[1] * 1.1 * Math.cos(angleSlice * i - Math.PI / 2)} dy={idx*12}>{t}</tspan>)
               }
             </text>
           : null
         }
         {stateAbbr === "example" | stateAbbr === "top-example" // if its example radar, give mobility labels
-          ? <text className="legend" textAnchor={textAnchorOptions[i]} y={rScale.range()[1] * 1.3 * Math.sin(angleSlice * i - Math.PI / 2)}>{labelTexts[i].map((t,idx) => <tspan x={rScale.range()[1] * 1.1 * Math.cos(angleSlice * i - Math.PI / 2)} dy={idx*13}>{t}</tspan>)}</text>
+          ? <text className="legend" textAnchor={textAnchorOptions[i]} y={rScale.range()[1] * 1.3 * Math.sin(angleSlice * i - Math.PI / 2)}>{labelTexts[i].map((t,idx) => <tspan key={idx} x={rScale.range()[1] * 1.1 * Math.cos(angleSlice * i - Math.PI / 2)} dy={idx*11}>{t}</tspan>)}</text>
           : null
         }
  

@@ -9,6 +9,7 @@ const Radar = ({
   rScale,
   angleSlice,
   colorScale,
+  colorColumn,
   mobile
 }) => {
   // prepare data for radar chart
@@ -35,6 +36,7 @@ const Radar = ({
         rScale={rScale}
         angleSlice={angleSlice}
         colorScale={colorScale}
+        colorColumn={colorColumn}
       />
       <RadarCircle
         data={radarData}
@@ -42,6 +44,7 @@ const Radar = ({
         rScale={rScale}
         angleSlice={angleSlice}
         colorScale={colorScale}
+        colorColumn={colorColumn}
       />
       { stateAbbr !== "us" // if its us radar chart, don't put state label in the middle 
         ? <text 

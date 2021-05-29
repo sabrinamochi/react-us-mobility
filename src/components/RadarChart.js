@@ -11,6 +11,7 @@ const RadarChart = ({
   rScale,
   angleSlice,
   colorScale,
+  colorColumn,
   mobile
 }) => {
 
@@ -31,6 +32,7 @@ const RadarChart = ({
         rScale={rScale}
         angleSlice={angleSlice}
         colorScale={colorScale}
+        colorColumn={colorColumn}
         mobile={mobile}
         />
     </g>

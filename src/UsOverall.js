@@ -38,7 +38,7 @@ let data = {
 
 
 
-const UsOverall = ({colorScale, mobility}) => {
+const UsOverall = ({residentialColorScale, mobility, residentialColorColumn}) => {
   const angleSlice = (Math.PI * 2) / mobility.length;
 
   const [dimensions,
@@ -81,21 +81,22 @@ const UsOverall = ({colorScale, mobility}) => {
   const rScale = scaleLinear()
     .domain([-50, 50])
     .range([0, radius]);
-
+    
   return (
     <section ref={containerRef} id="us-overall" className="mobility-chart">
-      <h3>The New Normalcy</h3>
+      <h3>Back to Shops, But Not Offices</h3>
       <p className="chart-subtitle">US average mobility between April 7 and May 7, 2021</p>
       <svg width={dimensions.width} height={dimensions.height}>
         <g
           className="chart"
           transform={`translate(${dimensions.width / 2}, ${ (dimensions.height+20) / 2})`}>
           <GradientLegend
-            colorScale={colorScale}
+            colorScale={residentialColorScale}
             x={mobile ? - dimensions.width / 6 : - dimensions.width / 8}
             y={ -(radius + dimensions.MARGIN.top / 2)}
             width={mobile ?  dimensions.width / 3 : dimensions.width / 4}
-            height={20}/>
+            height={20}
+            forMap={false}/>
           <RadarChart
             data={data}
             stateAbbr="us"
@@ -103,7 +104,8 @@ const UsOverall = ({colorScale, mobility}) => {
             mobility={mobility}
             rScale={rScale}
             angleSlice={angleSlice}
-            colorScale={colorScale}
+            colorScale={residentialColorScale}
+            colorColumn={residentialColorColumn}
             telework={data.percent_telework}/>
         </g>
       </svg>

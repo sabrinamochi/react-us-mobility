@@ -7,7 +7,7 @@ import RadarChart from "./RadarChart";
 const csvUrl = "https://gist.githubusercontent.com/sabrinamochi/6b1a8d203618ed230c7254bf8c53dfd2" +
     "/raw/cd80388fa3b33d48a8e324331bbcb83531c883c8/clean-avg-mobility-data.csv";
 
-const Map = ({onChangeTooltipValue, stateSize, mobility, colorScale, mobile}) => {
+const Map = ({onChangeTooltipValue, stateSize, mobility, colorScale, colorColumn, mobile}) => {
   // load data
   const data = readData(csvUrl);
   if (!data) {
@@ -32,35 +32,26 @@ const Map = ({onChangeTooltipValue, stateSize, mobility, colorScale, mobile}) =>
     .domain([-50, 50])
     .range([0, radius]);
 
-  const lowerMobilityStates = [
-    "MA",
-    "VT",
-    "MD",
-    "NJ",
-    "HI",
-    "DC",
-    "RI",
-    "CT"
-  ];
-
-  const selNeAndWStates = [
-    "VT",
-    "NH",
-    "MA",
+  const selNeStates = [
     "NY",
     "NJ",
-    "CT",
+    "MA",
+    "VT",
     "RI",
-    "HI",
-    "CA",
-    "CO",
-    "NM",
+    "CT",
+    "NH",
+    "ME"
+  ];
+
+  const selWStates = [
+   "AK","WA","OR","ID","NV","UT","AZ",
+   "MT","WY"
   ];
 
   const selMwAndSStates = [
-    "WI","IL","SD","IA","IN","OH",
-    "NE","MO","KY","KS","AR","TN","NC","SC",
-    "OK","MS","AL","GA","TX"
+    "SD","NE","KS","OK","IA","MO","AR",
+    "WI", "IN", "KY","TN","MS","IL","OH",
+    "NC", "AL", "SC", "GA"
   ];
 
   const handleMouseOver = (selData) => {
@@ -82,14 +73,13 @@ const Map = ({onChangeTooltipValue, stateSize, mobility, colorScale, mobile}) =>
   }
 
   return data.map((d, i) => {
-    const assignedClassName = ["radar"];
-    if (selNeAndWStates.includes(d["State Code"])) {
-      assignedClassName.push("ne-w");
+    const assignedClassName = ["radar", `${d["State Code"]}-radar`];
+    if (selNeStates.includes(d["State Code"])) {
+      assignedClassName.push("ne");
+    } else if (selWStates.includes(d["State Code"])) {
+      assignedClassName.push("west");
     } else if (selMwAndSStates.includes(d["State Code"])) {
       assignedClassName.push("mw-s");
-    }
-    if (lowerMobilityStates.includes(d["State Code"])) {
-      assignedClassName.push("low-overall-mobility")
     }
     return (
       <g
@@ -107,6 +97,7 @@ const Map = ({onChangeTooltipValue, stateSize, mobility, colorScale, mobile}) =>
           rScale={rScale}
           angleSlice={angleSlice}
           colorScale={colorScale}
+          colorColumn={colorColumn}
           mobile={mobile}/>
       </g>
     )

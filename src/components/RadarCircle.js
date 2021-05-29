@@ -2,8 +2,8 @@ import React, {useRef, useEffect} from "react";
 import {select} from "d3";
 
 
-const RadarCircle = ({ data, stateAbbr, rScale, angleSlice, colorScale }) => {
-  const dotRadius = stateAbbr === "us" ? 5 : 2.5;
+const RadarCircle = ({ data, stateAbbr, rScale, angleSlice, colorScale, colorColumn }) => {
+  const dotRadius = stateAbbr === "us" ? 5 : 3;
   const circleTooltipRef = useRef(null);
 
   const handleMouseOver = (d, cx, cy) => {
@@ -47,7 +47,7 @@ const RadarCircle = ({ data, stateAbbr, rScale, angleSlice, colorScale }) => {
           cx={modifiedRScale * posXCal}
           cy={modifiedRScale * posYCal}
           r={dotRadius}
-          fill={colorScale(data.residential)}
+          fill={colorScale(data[colorColumn])}
         />
         {stateAbbr === "us" && 
             <text ref={circleTooltipRef} className="radar-circle-legend"></text>

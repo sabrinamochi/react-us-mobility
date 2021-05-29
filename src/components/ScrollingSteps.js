@@ -11,70 +11,76 @@ const ScrollingSteps = {
       selectAll(".radar-circle").classed("show", false)
     }
   },
-  "park": (direction) => {
+  "parks": (direction) => {
     if (direction == "down") {
       selectAll(".radar-path").classed("show", false)
       selectAll(".radar-circle").classed("show", false)
       selectAll(".radar-circle-parks_change_diff").classed("show", true)
       selectAll(".ak-legend").classed("show", true)
     } else {
+      selectAll(".radar-circle-parks_change_diff").classed("show", false)
       selectAll(".radar-path").classed("show", true)
       selectAll(".radar-circle").classed("show", true)
     }
   },
-  "east": (direction) => {
+  "workplaces": (direction) => {
     if (direction == "down") {
       selectAll(".radar-circle-parks_change_diff").classed("show", false)
-      selectAll(".low-overall-mobility path, .low-overall-mobility circle")
-        .classed("show", true)
+      selectAll(".radar-circle-workplaces_change_diff").classed("show", true)
     } else {
-      selectAll(".low-overall-mobility path, .low-overall-mobility circle")
-        .classed("show", false)
+      selectAll(".radar-circle-workplaces_change_diff").classed("show", false)
       selectAll(".radar-circle-parks_change_diff").classed("show", true)
     }
   },
-  "ne-w": (direction) => {
+  "dc": (direction) => {
     if (direction == "down") {
-      selectAll(".low-overall-mobility path, .low-overall-mobility circle")
-        .classed("show", false)
-      selectAll(".ne-w path, .ne-w circle")
-        .classed("show", true)
+      selectAll(".radar-circle-workplaces_change_diff").classed("show", false)
+      selectAll(".DC-radar path, .DC-radar circle").classed("show", true)
     } else {
-      selectAll(".ne-w path, .ne-w circle")
-        .classed("show", false)
-      selectAll(".low-overall-mobility path, .low-overall-mobility circle")
-        .classed("show", true)
+      selectAll(".DC-radar path, .DC-radar circle").classed("show", false)
+      selectAll(".radar-circle-workplaces_change_diff").classed("show", true)
+    }
+  },
+  "ne": (direction) => {
+    if (direction == "down") {
+      selectAll(".DC-radar path, .DC-radar circle").classed("show", false)
+      selectAll(".ne path, .ne circle").classed("show", true)
+    } else {
+      selectAll(".ne path, .ne circle").classed("show", false)
+      selectAll(".DC-radar path, .DC-radar circle").classed("show", true)
+    }
+  },
+  "west": (direction) => {
+    if (direction == "down") {
+      selectAll(".ne path, .ne circle").classed("show", false)
+      selectAll(".west path, .west circle").classed("show", true)
+    } else {
+      selectAll(".west path, .west circle").classed("show", false)
+      selectAll(".ne path, .ne circle").classed("show", true)
     }
   },
   "mw-s": (direction) => {
     if (direction == "down") {
-      selectAll(".ne-w path, .ne-w circle")
-        .classed("show", false)
-      selectAll(".mw-s path, .mw-s circle")
-        .classed("show", true)
+      selectAll(".west path, .west circle").classed("show", false)
+      selectAll(".mw-s path, .mw-s circle").classed("show", true)
     } else {
-      selectAll(".mw-s path, .mw-s circle")
-        .classed("show", false)
-      selectAll(".ne-w path, .ne-w circle")
-        .classed("show", true)
+      selectAll(".mw-s path, .mw-s circle").classed("show", false)
+      selectAll(".west path, .west circle").classed("show", true)
     }
   },
-  "telework": (direction) => {
+  "vac": (direction) => {
     if (direction == "down") {
+      selectAll(".west path, .west circle").classed("show", false)
       selectAll(".radar-path").classed("show", true)
       selectAll(".radar-circle").classed("show", true)
-      select(".telework-legend").style("opacity", 1)
-      selectAll(".telework").classed("selected-grid", true)
+
     } else {
       selectAll(".radar-path").classed("show", false)
       selectAll(".radar-circle").classed("show", false)
-      select(".telework-legend").style("opacity", 0)
-      selectAll(".telework").classed("selected-grid", false)
-      selectAll(".mw-s path, .mw-s circle")
-        .classed("show", true)
+      selectAll(".west path, .west circle").classed("show", true)
     }
   },
-  "explore": (direction) => {
+  "telework": (direction) => {
     return;
   },
   "invisible": (direction) => {
