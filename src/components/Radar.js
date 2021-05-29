@@ -45,6 +45,7 @@ const Radar = ({
         angleSlice={angleSlice}
         colorScale={colorScale}
         colorColumn={colorColumn}
+        mobile={mobile}
       />
       { stateAbbr !== "us" // if its us radar chart, don't put state label in the middle 
         ? <text 

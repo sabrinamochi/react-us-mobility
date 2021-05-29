@@ -12,7 +12,7 @@ const GridLegend = ({stateAbbr, gridCircleData, radius}) => {
                 `≥+${100*(n-1)/2}%`
               }
               {n === 1 &&
-               `No Change`
+               `0%`
               }
               {n === 0 && 
                 `≤${100*(n-1)/2}%`

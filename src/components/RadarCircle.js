@@ -1,8 +1,8 @@
-import React, {useRef, useEffect} from "react";
+import React, {useRef} from "react";
 import {select} from "d3";
 
 
-const RadarCircle = ({ data, stateAbbr, rScale, angleSlice, colorScale, colorColumn }) => {
+const RadarCircle = ({ data, stateAbbr, rScale, angleSlice, colorScale, colorColumn, mobile }) => {
   const dotRadius = stateAbbr === "us" ? 5 : 3;
   const circleTooltipRef = useRef(null);
 

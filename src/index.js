@@ -39,7 +39,7 @@ const App = () => {
           <br></br>
           <p>However, visits to workplaces are still down by 20% as compared to the baseline.  </p>
           <br></br>
-          <p>A further inspection of the state-level data reveals that while visits to workplaces remain below the baseline in all states, mobility trends in other locations vary across the country. </p>
+          <p>A further inspection of the state-level data reveals that while visits to workplaces remain below the baseline in all states, mobility trends in other locations vary across states. </p>
         </div>
       </section>
       <UsByState residentialColorScale={colorScale} mobility={mobility} residentialColorColumn="residential"/>

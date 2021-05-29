@@ -56,8 +56,8 @@ const Map = ({onChangeTooltipValue, stateSize, mobility, colorScale, colorColumn
 
   const handleMouseOver = (selData) => {
     const circlePosition = {
-      circleX:x_column(selData) + stateSize * 2.2,
-      circleY: y_row(selData) + stateSize / 2
+      circleX: x_column(selData) + stateSize * 4,
+      circleY: y_row(selData) + stateSize * 2
     }
     const updatedData = {
       ...selData,

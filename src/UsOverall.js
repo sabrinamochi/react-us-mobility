@@ -85,7 +85,8 @@ const UsOverall = ({residentialColorScale, mobility, residentialColorColumn}) =>
   return (
     <section ref={containerRef} id="us-overall" className="mobility-chart">
       <h3>Back to Shops, But Not Offices</h3>
-      <p className="chart-subtitle">US average mobility between April 7 and May 7, 2021</p>
+      <p className="chart-subtitle">US average mobility in Apr. and May 2021</p>
+      <p className="chart-subtitle">(compared to baseline in Jan. and Feb. 2020)</p>
       <svg width={dimensions.width} height={dimensions.height}>
         <g
           className="chart"
@@ -111,7 +112,6 @@ const UsOverall = ({residentialColorScale, mobility, residentialColorColumn}) =>
       </svg>
       <div className="chart-notes">
       <p className="source">Data Source: Google Mobility Reports</p>
-        <p>The baseline represents average mobility trends seen in January and February 2020. </p>
       </div>
     </section>
   )

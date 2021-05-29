@@ -6,7 +6,7 @@ import {selectAll, select, scaleLinear, color} from "d3";
 import Map from "./components/Map";
 import Grid from "./components/Grid";
 import GradientLegend from "./components/GradientLegend";
-import TeleworkLegend from "./components/TeleworkLegend";
+// import TeleworkLegend from "./components/TeleworkLegend";
 import ScrollingSteps from "./components/ScrollingSteps";
 
 // define chart dimensions
@@ -160,7 +160,7 @@ const initialTooltipValue = {
           <div style={{
             position: "relative"
           }}>
-            <h3>Mobility Patterns by State</h3>
+            <h3>Mobility by State</h3>
             <p className="chart-subtitle"></p>
             <div id="mobile-radar-legend">
               <svg width={dimensions.width} height={mobileScreenTopExampleRadarR * 3}>
@@ -200,12 +200,7 @@ const initialTooltipValue = {
                   ? dimensions.width / 3
                   : dimensions.width / 4}
                   height={20}
-                  forMap={true}/> {/* <TeleworkLegend
-                  transform={`translate(${teleworkLegendMarginLeft + dimensions.width / 2 - dimensions.MARGIN.left + dimensions.width / 8}, ${ 10 - dimensions.MARGIN.top / 2})`}
-                  width={mobile
-                  ? 30
-                  : 60}
-                  mobile={mobile}/> */}
+                  forMap={true}/> 
                 <Map
                   onChangeTooltipValue={onChangeTooltipHandler}
                   stateSize={dimensions.stateSize}
@@ -216,8 +211,7 @@ const initialTooltipValue = {
               </g>
             </svg>
             <div className="chart-notes">
-              <p className="source">Data Source: Google Mobility Reports, Household Pulse Survey</p>
-              <p className="source">Interested in how I conducted the data analysis? View it <a href="https://sabrinamochi.github.io/react-us-mobility/google-mobility-reports-analysis.html">here</a>. </p>
+              <p className="source">Data Source: Google Mobility Reports, Household Pulse Survey <br></br> The baseline represents average mobility trends seen in January and February 2020. Interested in how I conducted the data analysis? View it <a href="https://sabrinamochi.github.io/react-us-mobility/google-mobility-reports-analysis.html">here</a>.</p>
             </div>
             <div
               className="tooltip"
@@ -316,7 +310,7 @@ const initialTooltipValue = {
           </div>
           <div className="scrolling-text" data-step="vac">
             <p><span className="scrolling-text-title">Has vaccination changed people's mobility patterns? </span>There's no significant correlation between vaccination rates and mobility
-              based on my analysis, echoing a survey result from Cardify, which concludes that
+              based on my analysis, echoing a survey result from <a href="https://www.cardify.ai/reports/pandemic-thrivers">Cardify</a>, which concludes that
               higher vaccination rates haven't been the primary driver for economic activity.
             </p>
           </div>

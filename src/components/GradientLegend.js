@@ -15,7 +15,7 @@ const GradientLegend = ({colorScale, colorColumn, x, y, width, height, forMap}) 
           {forMap ? null : "Time Spent At Home"}
         </text>
         <rect x={x} y={y} width={width} height={height} fill={`url(#${colorColumn}-linear-gradient)`}/>
-        <text x={x} y={y+height*1.8}>{colorColumn === "residential" ?  `No Change` : `${colorScale.domain()[0]}%`}</text>
+        <text x={x} y={y+height*1.8}>{`${colorScale.domain()[0]}%`}</text>
         <text x={x+width} y={y+height*1.8} textAnchor="end">{colorColumn === "residential" ? `≥+${colorScale.domain()[1]}%` : `≥${colorScale.domain()[1]}%`}</text>
       </g>
     )
