@@ -1,5 +1,5 @@
 import "./styles.css";
-import React, {useRef, useEffect, useState} from "react";
+import React, {useRef, useEffect, useState, useCallback} from "react";
 import {scaleLinear} from "d3-scale";
 import RadarChart from "./components/RadarChart";
 import GradientLegend from "./components/GradientLegend";
@@ -27,6 +27,7 @@ const initialDimensions = {
   }
 };
 
+// US average data
 let data = {
   "retail_recreation_change_diff": 2.7419354838709675,
   "groce_pharm_change_diff": 3.532258064516129,
@@ -35,8 +36,6 @@ let data = {
   "workplaces_change_diff": -15.387096774193548,
   "residential_change_diff": 3.25806451612903
 }
-
-
 
 const UsOverall = ({residentialColorScale, mobility, residentialColorColumn}) => {
   const angleSlice = (Math.PI * 2) / mobility.length;
@@ -48,7 +47,7 @@ const UsOverall = ({residentialColorScale, mobility, residentialColorColumn}) =>
 
   const containerRef = useRef(null);
 
-  function updateDimensions() {
+  const updateDimensions = useCallback(() => {
     if (containerRef.current) {
       setMobile(window.innerWidth <= 768
         ? true
@@ -70,7 +69,7 @@ const UsOverall = ({residentialColorScale, mobility, residentialColorColumn}) =>
         height = 1.1 * width / 2 + MARGIN.top + MARGIN.bottom;
       setDimensions({height, width, stateSize, MARGIN});
     }
-  }
+  },[])
 
   useEffect(() => {
     updateDimensions()

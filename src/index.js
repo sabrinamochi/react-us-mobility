@@ -23,23 +23,22 @@ const App = () => {
     <main>
       <section className="content">
         <h1>Where People Are Moving Again</h1>
-        <p className="byline">By Szu Yu Chen</p>
         <div>
-          <p>City streets are getting crowded. Travel plans are ramping up. Restaurants are allowing people to dine in again. </p>
+          <p>City streets are getting crowded, airplanes are filling up, and restaurants are allowing people to dine in again. </p>
           <br></br>
-          <p>After vaccine rollout began last December and restrictions on social distancing have eased, America is on track to return to normalcy. </p>
+          <p>As vaccine rollout began last December and restrictions on social distancing have eased, America is on track to return to normalcy.  </p>
           <br></br>
-          <p>Google COVID-19 Community Mobility Reports show how visits and length of stay in different locations have changed compared to a baseline period before the pandemic. </p>
+          <p>Google COVID-19 Community Mobility Reports show how visits and length of stay in different locations have changed compared to a baseline period before the pandemic.</p>
         </div>
       </section>
       <UsOverall residentialColorScale={colorScale()} mobility={mobility} residentialColorColumn="residential"/>
       <section className="content">
         <div>
-          <p>Across the U.S., movement of people to shopping centers, grocery stores and train stations in 2021 is almost the same as what it was during the pre-pandemic days.</p>
+          <p>Across the U.S., movement of people to shopping centers, grocery stores and train stations is almost the same as what it was during the pre-pandemic days.</p>
           <br></br>
-          <p>However, visits to workplaces are still down by 20% as compared to the baseline.  </p>
+          <p>However, visits to workplaces are still down 20% from the baseline.  </p>
           <br></br>
-          <p>A further inspection of the state-level data reveals that while visits to workplaces remain below the baseline in all states, mobility trends in other locations vary across states. </p>
+          <p>A further inspection of the state-level data reveals that while visits to workplaces remain below the baseline in all states, mobility trends in other locations vary across the country. </p>
         </div>
       </section>
       <UsByState residentialColorScale={colorScale} mobility={mobility} residentialColorColumn="residential"/>
