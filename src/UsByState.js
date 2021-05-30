@@ -289,27 +289,25 @@ const UsByState = ({residentialColorScale, mobility, residentialColorColumn}) =>
         </div>
         <div className="scrolling-text" data-step="dc">
           <p>
-            <span className="scrolling-text-title">D.C. has the most significant reduction</span>
-            in mobility patterns. Visits to different locations decline to about 40% below
+            <span className="scrolling-text-title">D.C. has the most significant reduction </span>in mobility patterns. Visits to different locations decline to about 40% below
             pre-pandemic levels.
           </p>
         </div>
         <div className="scrolling-text" data-step="ne">
           <p>
-            <span className="scrolling-text-title">Northeastern states</span>
+            <span className="scrolling-text-title">Northeastern states </span>
             still see people spending more time at home. At the beginning of the pandemic,
             this region was hit particularly hard and under more stringent restrictions.</p>
         </div>
         <div className="scrolling-text" data-step="west">
           <p>
-            <span className="scrolling-text-title">A few states in the west region</span>
+            <span className="scrolling-text-title">A few states in the west region </span>
             see close-to-normal mobility trends in indoor commercial locations, such as
             shops and restaurants.</p>
         </div>
         <div className="scrolling-text" data-step="mw-s">
           <p>
-            <span className="scrolling-text-title">About two-thirds of the states in the midwest and south regions
-            </span>
+            <span className="scrolling-text-title">About two-thirds of the states in the midwest and south regions </span>
             see commercial activities heating up. Mobility trends in supermarkets, cafes and
             transit stations reach or even surpass baseline levels. The amount of time
             people spent at home is the same as what it was before the pandemic.
@@ -317,8 +315,7 @@ const UsByState = ({residentialColorScale, mobility, residentialColorColumn}) =>
         </div>
         <div className="scrolling-text" data-step="vac">
           <p>
-            <span className="scrolling-text-title">Has vaccination changed people's mobility patterns?
-            </span>There's no significant correlation between vaccination rates and mobility
+            <span className="scrolling-text-title">Has vaccination changed people's mobility patterns? </span>There's no significant correlation between vaccination rates and mobility
             based on my analysis, echoing a survey result from
             <a href="https://www.cardify.ai/reports/pandemic-thrivers">Cardify</a>, which
             concludes that higher vaccination rates haven't been the primary driver for
@@ -327,8 +324,7 @@ const UsByState = ({residentialColorScale, mobility, residentialColorColumn}) =>
         </div>
         <div className="scrolling-text" data-step="telework">
           <p>
-            <span className="scrolling-text-title">But the percentage of people working remotely
-            </span>
+            <span className="scrolling-text-title">But the percentage of people working remotely </span>
             highly correlates with the changes in mobility patterns. States with more people
             reporting being able to telework also have lower mobility in most locations.</p>
           <br></br>
